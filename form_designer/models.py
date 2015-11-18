@@ -158,6 +158,7 @@ class FormDefinition(models.Model):
 
         from django.core.mail import EmailMessage
         message = EmailMessage(mail_subject, message, mail_from or None, mail_to)
+        message.content_subtype = "html"
 
         if self.mail_uploaded_files:
             for file_path in files:
